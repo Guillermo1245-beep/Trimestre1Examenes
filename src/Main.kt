@@ -9,7 +9,7 @@ class Main {
 
 fun Parecido () {
 
-    //Busque como usar un scanner y como dividir un string para poder meterlo en un array para comparara las palabras
+    //aaaaaaaaaaaaa
 
     val sc = Scanner(System.`in`)
 
