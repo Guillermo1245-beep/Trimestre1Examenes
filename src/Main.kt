@@ -7,15 +7,31 @@ class Main {
 
 fun Carrera (Estrategia: Array<String>, Circuito: String ) {
 
-    val circuito: List<String> = Circuito.split("")
+    val circuitoArray: List<String> = Circuito.split("")
+    val circuito: MutableList<String> = circuitoArray.toMutableList()
     var respuestaGrafica: MutableList<String> = mutableListOf()
     var cagada: MutableList<String> = mutableListOf()
+
+    circuito.removeAt(0)
+    circuito.removeAt(circuito.size - 1)
 
     var suficiente: Int = 0
     var respuesta: Boolean = true
     var opcion: Int = 0
 
-    for (obstaculo in circuito){
+    var diferencia: Int = 0
+
+    diferencia = circuito.size - Estrategia.size
+
+    if (diferencia < 0 ) {
+        diferencia = diferencia * -1
+    }
+
+    for (x in 0 until  diferencia) {
+        cagada.add("?")
+    }
+
+    for (obstaculo in circuito) {
 
         if (opcion < Estrategia.size  && Estrategia[opcion] == "correr") {
 
@@ -43,7 +59,7 @@ fun Carrera (Estrategia: Array<String>, Circuito: String ) {
             } else if (obstaculo == "_") {
                 respuestaGrafica.add("x")
                 if (suficiente == 0) {
-                    respuesta = true
+                    respuesta = false
                     suficiente++
                 }
             } else {
