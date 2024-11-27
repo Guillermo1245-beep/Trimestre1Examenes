@@ -14,36 +14,38 @@ fun Carrera (Estrategia: Array<String>, Circuito: String ): Boolean {
     var opcion: Int = 0
     for (obstaculo in circuito){
 
-        if (Estrategia[opcion] == "correr") {
+        if (opcion <= circuito.size && Estrategia[opcion] == "correr") {
 
-            if (circuito.equals("|")) {
+            if (obstaculo == "|") {
                 respuestaGrafica.add("/")
                 respuesta = false
-            } else if (circuito.equals("_")) {
+            } else if (obstaculo == "_") {
                 respuestaGrafica.add("_")
                 respuesta = true
             } else {
                 cagada.add("?")
             }
 
-        } else if (Estrategia[opcion] == "saltar") {
+        } else if (opcion <= circuito.size &&  Estrategia[opcion] == "saltar") {
 
-            if (circuito.equals("|")) {
+            if (obstaculo == "|") {
                 respuestaGrafica.add("|")
                 respuesta = true
-            } else if (circuito.equals("x")) {
+            } else if (obstaculo == "x") {
                 respuesta = false
             } else {
                 cagada.add("?")
             }
         }
+        opcion++
     }
 
-    println"respuestaGrafica"
+
 }
 
 fun main () {
 
-    Carrera()
+    var lista: Array<String> = ArrayList()
+    Carrera( lista,"_|_|_")
 
 }
