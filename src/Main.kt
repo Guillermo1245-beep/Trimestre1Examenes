@@ -28,26 +28,33 @@ fun comprobacionMatematica () {
 
     for (operacion in operaciones) {
         var ListraFiltrada: MutableList<String> = mutableListOf()
-        var Listacontador: Int = 0
         for (simbolo in operacion) {
 
-            if (simbolo == "(" || simbolo == "{" || simbolo == "[" || simbolo == ")" || simbolo == "}" || simbolo == "]") {
+            if (simbolo == "(" || simbolo == "{" || simbolo == "[") {
                 ListraFiltrada.add(simbolo)
-                Listacontador++
             }
 
-            if (Listacontador > 0) {
-                if (ListraFiltrada[Listacontador] == ListraFiltrada[Listacontador - 1]) {
-                    ListraFiltrada.removeAt(Listacontador)
-                    Listacontador--
+            if (ListraFiltrada.size > 0 && (simbolo == ")" || simbolo == "}" || simbolo == "]")) {
+                if (ListraFiltrada.last() == "(" && simbolo == ")") {
+                    ListraFiltrada.removeAt(ListraFiltrada.size - 1)
+
+                } else if (ListraFiltrada.last() == "{" && simbolo == "}"){
+                    ListraFiltrada.removeAt(ListraFiltrada.size - 1)
+
+                } else if (ListraFiltrada.last() == "[" && simbolo == "]") {
+                    ListraFiltrada.removeAt(ListraFiltrada.size - 1)
+
+                } else {
+                    break
                 }
             }
         }
 
         if (ListraFiltrada.size == 0) {
-            println("Operacion Matematica correcta")
+            println("¿Esta balanceada? = true")
+            println(ListraFiltrada)
         } else {
-            println("Operacion Matematica incorrecta")
+            println("¿Esta balanceada? = false")
             println(ListraFiltrada)
         }
     }
