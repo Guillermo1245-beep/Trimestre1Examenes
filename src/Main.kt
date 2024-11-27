@@ -5,32 +5,41 @@ class Main {
 
 }
 
-fun Matrices (lista: MutableList<MutableList<String>>): String{
+fun Matrices (lista: MutableList<MutableList<String>>): String {
 
-    return "hola" +
-            ""
+
     var MatrizAlineada: MutableList<String> = mutableListOf()
-    var ganador: String = "No gano ningo, vaya pringaos"
+    var ganador: String = "Empate"
+    var X: Int = 0
+    var O: Int = 0
 
     for (Linea in lista) {
         for (valor in Linea) {
             MatrizAlineada.add(valor)
+            if (valor == "X") {
+                X++
+            } else if (valor == "O"){
+                O++
+            }
         }
     }
 
     // revisar verticales
-    for ( x in 0 .. 2) {
+    for (x in 0..2) {
         if (MatrizAlineada[x] == "X" && MatrizAlineada[x + 3] == "X" && MatrizAlineada[x + 3] == "X") {
             ganador = "X"
-        } else if (MatrizAlineada[x] == "O" && MatrizAlineada[x + 3] == "O" && MatrizAlineada[x + 3] == "O")
-            ganador= "O"
+        } else if (MatrizAlineada[x] == "O" && MatrizAlineada[x + 3] == "O" && MatrizAlineada[x + 3] == "O") {
+            ganador = "O"
+        }
     }
+
     // revisar horizontales
     for ( x in 1 .. 3) {
         if (MatrizAlineada[x] == "X" && MatrizAlineada[x + 1] == "X" && MatrizAlineada[x + 2] == "X") {
             ganador ="X"
-        } else if (MatrizAlineada[x] == "O" && MatrizAlineada[x + 1] == "O" && MatrizAlineada[x + 2] == "O")
-            ganador= "O"
+        } else if (MatrizAlineada[x] == "O" && MatrizAlineada[x + 1] == "O" && MatrizAlineada[x + 2] == "O") {
+            ganador = "O"
+        }
     }
 
     //revisar diagonales
@@ -47,7 +56,15 @@ fun Matrices (lista: MutableList<MutableList<String>>): String{
         ganador= "O"
     }
 
+
+   if (X - O > 1 || O - X > 1) {
+       return "null"
+   } else {
+       return ganador
+   }
+
 }
+
 
 fun main () {
 
@@ -68,9 +85,9 @@ fun main () {
     var linea3m4: MutableList<String> = mutableListOf("X", "X", "X")
     var Matriz4 : MutableList<MutableList<String>> = mutableListOf(linea1m4,linea2m4,linea3m4)
 
-    Matrices(Matriz1)
-    Matrices(Matriz2)
-    Matrices(Matriz3)
-    Matrices(Matriz4)
+    println(Matrices(Matriz1))
+    println(Matrices(Matriz2))
+    println(Matrices(Matriz3))
+    println(Matrices(Matriz4))
 
 }
