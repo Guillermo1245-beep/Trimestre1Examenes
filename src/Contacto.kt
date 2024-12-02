@@ -1,5 +1,3 @@
-class Contacto (nombre: String, telefono: String ) {
-
-
+data class Contacto (val nombre: String, val telefono: String ) {
 
 }
