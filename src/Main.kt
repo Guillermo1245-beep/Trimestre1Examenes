@@ -29,6 +29,8 @@ fun Carrera (Estrategia: Array<String>, Circuito: String ) {
 
     for (x in 0 until  diferencia) {
         cagada.add("?")
+        respuesta = false
+        suficiente++
     }
 
     for (obstaculo in circuito) {
@@ -58,10 +60,9 @@ fun Carrera (Estrategia: Array<String>, Circuito: String ) {
                 }
             } else if (obstaculo == "_") {
                 respuestaGrafica.add("x")
-                if (suficiente == 0) {
                     respuesta = false
                     suficiente++
-                }
+
             } else {
                 cagada.add("?")
             }
