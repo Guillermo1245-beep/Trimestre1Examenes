@@ -63,7 +63,7 @@ fun opcion1 (contactos:MutableList<Contacto>) {
     }
 
     for (contacto in contactos){
-        if (contacto.nombre == nuevoNombre || contacto.telefono == nuevoTelefono) {
+        if (contacto.nombre.lowercase() == nuevoNombre.lowercase() || contacto.telefono.lowercase() == nuevoTelefono.lowercase()) {
             existente = true
         }
     }
@@ -101,7 +101,7 @@ fun opcion3 (contactos:MutableList<Contacto>) {
 
     if (contactos.size > 0) {
         for (contacto in contactos) {
-            if (contacto.nombre == contactoAbuscar){
+            if (contacto.nombre.lowercase() == contactoAbuscar.lowercase()){
                 println("Su telefono es $contacto.$telefono")
             }
         }
@@ -122,7 +122,7 @@ fun opcion4 (contactos:MutableList<Contacto>) {
 
     if (contactos.size > 0) {
         for (contacto in contactos) {
-            if (contacto.nombre == contactoAbuscar) {
+            if (contacto.nombre.lowercase() == contactoAbuscar.lowercase()) {
                 println("Existe contacto")
             }
         }
@@ -145,7 +145,7 @@ fun opcion5 (contactos:MutableList<Contacto>) {
 
     if (contactos.size > 0) {
         for (contacto in contactos) {
-            if (contacto.nombre == contactoAbuscar) {
+            if (contacto.nombre.lowercase() == contactoAbuscar.lowercase()) {
                 contactos.removeAt(indice)
             }
             indice++
