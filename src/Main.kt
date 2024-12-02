@@ -45,11 +45,13 @@ fun MenuInicial () {
     }
 }
 
+//Funciona correctamente
 fun opcion1 (contactos:MutableList<Contacto>) {
 
-    println("Introduzca el nombre y telefono del contacto")
     var existente: Boolean = false
+    println("Introduzca el nombre del contacto")
     val nuevoNombre = sc.nextLine()
+    println("Introduzca el telefono del contacto")
     val nuevoTelefono = sc.nextLine()
     var nuevoContacto: Contacto = Contacto(nuevoNombre, nuevoTelefono)
 
@@ -74,11 +76,12 @@ fun opcion1 (contactos:MutableList<Contacto>) {
     MenuInicial()
 }
 
+//Funciona correctamente
 fun opcion2 (contactos:MutableList<Contacto>) {
 
     if (contactos.size > 0) {
         for (contacto in contactos) {
-            println("nombre = " + contacto.nombre +",Teléfono = " + contacto.telefono)
+            println("nombre = " + contacto.nombre +", Teléfono = " + contacto.telefono)
         }
         MenuInicial()
     } else {
@@ -95,18 +98,25 @@ fun opcion3 (contactos:MutableList<Contacto>) {
 
     println("Introduzca el contacto")
     val contactoAbuscar = sc.nextLine()
+    var telefono: String = ""
+    var encontrado: Boolean = false
 
     if (contactos.size > 0) {
         for (contacto in contactos) {
             if (contacto.nombre.lowercase() == contactoAbuscar.lowercase()){
-                println("Su telefono es " + contacto.telefono)
+                telefono = contacto.telefono
+                encontrado = true
             }
         }
-        MenuInicial()
     } else {
-        println("No se ha encontrado el contacto")
+
     }
 
+    if (encontrado == true) {
+        println("Su telefono es $telefono")
+    } else if (encontrado == false){
+        println("No se ha encontrado el contacto")
+    }
     MenuInicial()
 
 }
@@ -116,19 +126,23 @@ fun opcion4 (contactos:MutableList<Contacto>) {
 
     println("Introduzca el contacto")
     val contactoAbuscar = sc.nextLine()
+    var telefono: String = ""
+    var encontrado: Boolean = false
 
     if (contactos.size > 0) {
         for (contacto in contactos) {
             if (contacto.nombre.lowercase() == contactoAbuscar.lowercase()) {
-                println("Existe contacto")
+                encontrado = true
             }
         }
-        MenuInicial()
-    } else {
-        println("No existe el contacto")
-        MenuInicial()
     }
 
+    if (encontrado == true) {
+        println("Existe contacto")
+    } else if (encontrado == false){
+        println("No existe contacto")
+    }
+    MenuInicial()
 
 
 }
@@ -144,6 +158,7 @@ fun opcion5 (contactos:MutableList<Contacto>) {
         for (contacto in contactos) {
             if (contacto.nombre.lowercase() == contactoAbuscar.lowercase()) {
                 contactos.removeAt(indice)
+                break
             }
             indice++
         }
