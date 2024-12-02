@@ -152,19 +152,24 @@ fun opcion5 (contactos:MutableList<Contacto>) {
 
     println("Introduzca el contacto")
     val contactoAbuscar = sc.nextLine()
+    var encontrado: Boolean = false
     var indice: Int = 0
 
     if (contactos.size > 0) {
         for (contacto in contactos) {
             if (contacto.nombre.lowercase() == contactoAbuscar.lowercase()) {
                 contactos.removeAt(indice)
+                encontrado = true
                 break
             }
             indice++
         }
+    }
+
+    if (encontrado == true) {
         println("Borrado con exito")
         MenuInicial()
-    } else {
+    } else if (encontrado == false) {
         println("No se ha eliminado el contacto")
         MenuInicial()
     }
