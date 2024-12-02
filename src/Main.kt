@@ -34,12 +34,14 @@ fun Matrices (lista: MutableList<MutableList<String>>): String {
     }
 
     // revisar horizontales
-    for ( x in 1 .. 3) {
-        if (MatrizAlineada[x] == "X" && MatrizAlineada[x + 1] == "X" && MatrizAlineada[x + 2] == "X") {
+    var multiplo: Int = 0
+    for ( x in 0 .. 2) {
+        if (MatrizAlineada[multiplo] == "X" && MatrizAlineada[multiplo + 1] == "X" && MatrizAlineada[multiplo + 2] == "X") {
             ganador ="X"
-        } else if (MatrizAlineada[x] == "O" && MatrizAlineada[x + 1] == "O" && MatrizAlineada[x + 2] == "O") {
+        } else if (MatrizAlineada[multiplo] == "O" && MatrizAlineada[multiplo + 1] == "O" && MatrizAlineada[multiplo + 2] == "O") {
             ganador = "O"
         }
+        multiplo = multiplo + 3
     }
 
     //revisar diagonales
