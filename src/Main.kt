@@ -78,7 +78,7 @@ fun opcion2 (contactos:MutableList<Contacto>) {
 
     if (contactos.size > 0) {
         for (contacto in contactos) {
-            println("nombre = $contacto.$nombre, Teléfono = $contacto.$telefono")
+            println("nombre = " + contacto.nombre +",Teléfono = " + contacto.telefono)
         }
         MenuInicial()
     } else {
@@ -99,7 +99,7 @@ fun opcion3 (contactos:MutableList<Contacto>) {
     if (contactos.size > 0) {
         for (contacto in contactos) {
             if (contacto.nombre.lowercase() == contactoAbuscar.lowercase()){
-                println("Su telefono es $contacto.$telefono")
+                println("Su telefono es " + contacto.telefono)
             }
         }
         MenuInicial()
