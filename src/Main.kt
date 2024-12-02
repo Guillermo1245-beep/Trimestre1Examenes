@@ -7,10 +7,7 @@ class Main {
 
 }
 
-var contacto1: Contacto = Contacto("Manuela", "32412423")
-var contacto2: Contacto = Contacto("Manuela", "324124")
-var contacto3: Contacto = Contacto("Manuela", "324124")
-var contactos: MutableList<Contacto> = mutableListOf(contacto1, contacto2, contacto3)
+var contactos: MutableList<Contacto> = mutableListOf()
 val sc = Scanner(System.`in`)
 
 fun MenuInicial () {
@@ -62,7 +59,7 @@ fun opcion1 (contactos:MutableList<Contacto>) {
         MenuInicial()
     }
 
-    for (contacto in contactos){
+    for (contacto in contactos) {
         if (contacto.nombre.lowercase() == nuevoNombre.lowercase() || contacto.telefono.lowercase() == nuevoTelefono.lowercase()) {
             existente = true
         }
